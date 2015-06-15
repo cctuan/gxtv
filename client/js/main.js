@@ -19,8 +19,9 @@ fetchRjsConfig().then(rjsConfig => {
   requirejs([
     'jquery',
     'backbone',
-    'react'
-  ], function($, Backbone, React) {
-    
+    'react',
+    'js/test'
+  ], function($, Backbone, React, test) {
+    console.log(test());
   });
 });

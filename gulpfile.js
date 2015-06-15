@@ -10,6 +10,7 @@ var plumber = require('gulp-plumber');
 var sequence = require('gulp-sequence');
 var changed = require('gulp-changed');
 var jscs = require('gulp-jscs');
+var watch = require('gulp-watch');
 
 var CURRENT_ENVIRONMENT = 'development';
 
@@ -126,11 +127,10 @@ gulp.task('html', function() {
 });
 
 gulp.task('watch', function() {
-  gulp.watch(SCSS_FILES, ['compass']);
-  gulp.watch([
-    JS_FILES,
-    INDEX_TEMPLATE_FILE
-  ], ['default']);
+  watch([SCSS_FILES, JS_FILES, INDEX_TEMPLATE_FILE], function() {
+    gulp.watch(SCSS_FILES, ['compass']);
+    gulp.watch([INDEX_TEMPLATE_FILE, JS_FILES], ['default']);
+  });
 });
 
 gulp.task('build', function(callback) {

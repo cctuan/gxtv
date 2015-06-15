@@ -5,3 +5,4 @@ node_modules
 server/db
 local.0
 local.ns
+.todo
