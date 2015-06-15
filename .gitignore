@@ -1,0 +1,7 @@
+*.swp
+dist
+client/vendor
+node_modules
+server/db
+local.0
+local.ns
