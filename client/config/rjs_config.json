@@ -8,6 +8,9 @@
     },
     "underscore": {
       "deps": ["jquery"]
+    },
+    "bootstrap": {
+      "deps": ["jquery"]
     }
   },
   "paths": {

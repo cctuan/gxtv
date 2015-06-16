@@ -1,4 +1,5 @@
 'use strict';
+
 var fetchRjsConfig = function() {
   var promise = new Promise(function(resolve) {
     var request = new XMLHttpRequest();
@@ -13,15 +14,3 @@ var fetchRjsConfig = function() {
   });
   return promise;
 };
-
-fetchRjsConfig().then(rjsConfig => {
-  requirejs.config(rjsConfig);
-  requirejs([
-    'jquery',
-    'backbone',
-    'react',
-    'js/test'
-  ], function($, Backbone, React, test) {
-    console.log(test());
-  });
-});

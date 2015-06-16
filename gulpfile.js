@@ -10,6 +10,7 @@ var plumber = require('gulp-plumber');
 var sequence = require('gulp-sequence');
 var changed = require('gulp-changed');
 var jscs = require('gulp-jscs');
+var cmq = require('gulp-combine-media-queries');
 var watch = require('gulp-watch');
 
 var CURRENT_ENVIRONMENT = 'development';
@@ -112,9 +113,16 @@ gulp.task('compass', function() {
     .pipe(changed(dest))
     .pipe(plumber())
     .pipe(compass({
+      style: 'compressed',
+      comments: false,
+      sourcemap: true,
       config_file: './client/config/compass_config.rb',
       css: './client/dist/css/',
-      sass: './client/styles/scss/'
+      sass: './client/styles/scss/',
+      debug: true
+    }))
+    .pipe(cmq({
+      log: true
     }))
     .pipe(gulp.dest(dest));
 });

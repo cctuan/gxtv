@@ -6,3 +6,4 @@ images_dir = './client/styles/images'
 javascripts_dir = 'js'
 relative_assets = true
 line_comments = true
+outer_style = 'compressed'
