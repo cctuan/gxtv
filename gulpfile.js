@@ -17,10 +17,10 @@ var CURRENT_ENVIRONMENT = 'development';
 
 // TODO
 // we have to double check **/*.js is a right expression or not
-const SCSS_FILES = './client/styles/scss/**/*.scss';
+const SCSS_FILES = './client/styles/scss/main*.scss';
 const JS_FILES = './client/js/**/*.js';
 const VENDOR_FILES = './client/vendor/**/*';
-const DIST_FILES = './client/dist';
+const DIST_FILES = './client/dist/*';
 const INDEX_TEMPLATE_FILE = './client/index.html';
 const INDEX_FILE = './client/index.html';
 const RESOURCE_FILE = './client/resource/**/*';

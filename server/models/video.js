@@ -74,3 +74,29 @@ VideoSchema.methods = {
   removeComment: function (commentId, cb) {
   }
 };
+
+/**
+ * Statics
+ */
+VideoSchema.statics = {
+  /**
+   * Load
+   *
+   * @param {Object} options
+   * @param {Function} cb
+   * @api private
+   */
+  load: function (options, cb) {
+    if (options.criteria && options.criteria._id) {
+      this.findOne(options.criteria)
+        .exec(cb);
+    } else {
+      this.find(options.criteria)
+        .exec(cb);
+
+    }
+  }
+};
+
+mongoose.model('Video', VideoSchema);
+

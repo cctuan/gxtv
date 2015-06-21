@@ -73,9 +73,9 @@
     // Mobile/Tablet CSS and JavaScript files to load
     filesToLoad = {
       // CSS file that is loaded when in development mode
-      "dev-css": "css/main.css",
+      "dev-css": "css/main.desktop.css",
       // CSS file that is loaded when in production mode
-      "prod-css": "css/main.min.css",
+      "prod-css": "css/main.desktop.min.css",
       // Require.js configuration file that is loaded when in development mode
       "dev-js": { "data-main": "js/desktop_config.js", "src": "vendor/requirejs/require.js" },
       // JavaScript initialization file that is also loaded when in development mode
@@ -88,9 +88,9 @@
     // Desktop CSS and JavaScript files to load
     filesToLoad = {
       // CSS file that is loaded when in development mode
-      "dev-css": "css/main.css",
+      "dev-css": "css/main.desktop.css",
       // CSS file that is loaded when in production mode
-      "prod-css": "css/main.min.css",
+      "prod-css": "css/main.desktop.min.css",
       // Require.js configuration file that is also loaded when in development mode
       "dev-js": { "data-main": "js/desktop_config.js", "src": "vendor/requirejs/require.js" },
       // JavaScript initialization file that is loaded when in development mode

@@ -70,6 +70,28 @@ exports.show = function (req, res) {
   });
 };
 
+exports.showAll = function(req, res) {
+  User.load({}, function (err, users) {
+    var result;
+    if (err) {
+      res.json({
+        data: []
+      });
+      return;
+    }
+    if (!users || users.length === 0) {
+      res.json({
+        data: []
+      });
+      return;
+    }
+    res.json({
+      data: users
+    });
+    return;
+  });
+};
+
 exports.signin = function (req, res) {};
 
 /**

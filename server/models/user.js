@@ -57,11 +57,6 @@ var validatePresenceOf = function (value) {
 
 // the below 5 validations only apply if you are signing up traditionally
 
-UserSchema.path('name').validate(function (name) {
-  if (this.skipValidation()) return true;
-  return name.length;
-}, 'Name cannot be blank');
-
 UserSchema.path('email').validate(function (email) {
   if (this.skipValidation()) return true;
   return email.length;
@@ -162,7 +157,6 @@ UserSchema.methods = {
  * Statics
  */
 UserSchema.statics = {
-
   /**
    * Load
    *
@@ -173,9 +167,16 @@ UserSchema.statics = {
 
   load: function (options, cb) {
     options.select = options.select || 'name username';
-    this.findOne(options.criteria)
-      .select(options.select)
-      .exec(cb);
+    if (options.criteria && options.criteria._id) {
+      this.findOne(options.criteria)
+        .select(options.select)
+        .exec(cb);
+    } else {
+      this.find(options.criteria)
+        .select(options.select)
+        .exec(cb);
+
+    }
   }
 };
 

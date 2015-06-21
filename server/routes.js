@@ -1,5 +1,6 @@
 
 var users = require('./controllers/users');
+var videos = require('./controllers/videos');
 
 module.exports = function(app, passport) {
 
@@ -12,6 +13,7 @@ module.exports = function(app, passport) {
   app.get('/api/auth/signup', users.signup);
   app.post('/api/users', users.create);
   app.get('/api/users/:userId', users.show);
+  app.get('/api/users', users.showAll);
 
   app.post('/api/users/session',
     passport.authenticate('local', {
@@ -21,4 +23,5 @@ module.exports = function(app, passport) {
 
   
   app.param('userId', users.load);
+  app.get('/api/videos/search', videos.search);
 };
