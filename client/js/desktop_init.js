@@ -5,10 +5,14 @@ fetchRjsConfig().then(rjsConfig => {
   requirejs([
     'jquery',
     'backbone',
-    'js/routers/desktop_router',
+    'react',
+    'js/desktop_interface',
     'js/test'
-  ], function($, Backbone, DesktopRouter) {
-    new DesktopRouter(); 
+  ], function($, Backbone, React, DesktopInterface) {
+  	React.render(
+  		<DesktopInterface />,
+  		document.body
+  	);
   });
 });
 

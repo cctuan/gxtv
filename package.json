@@ -35,7 +35,7 @@
     "sinon": "^1.15.3"
   },
   "scripts": {
-    "build": "npm install && gulp",
+    "build": "npm install && bower install & gulp",
     "db": "mongod --dbpath=server/db",
     "server": "NODE_PATH=./server/controllers NODE_ENV=development nodemon server/server.js",
     "start": "gulp watch",

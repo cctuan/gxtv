@@ -13,8 +13,8 @@ define([
 
   var ResultsCollection = Backbone.Collection.extend({
     model: ResultModel,
-    initialize: function() {
-
+    initialize: function(data) {
+      console.log(data);
     }
   });
 

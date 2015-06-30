@@ -4,12 +4,13 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'js/models/video_search_model'
-], function($, _, Backbone, VideoSearchModel) {
+  'react'
+], function($, _, Backbone, React) {
   var DesktopRouter = Backbone.Router.extend({
     initialize: function() {
       // Tells Backbone to start watching for hashchange events
       Backbone.history.start();
+      this.options = {};
     },
     routes: {
       "": "index",
@@ -23,26 +24,34 @@ define([
     },
 
     index: function() {
-      console.log('test');
-      var search = new VideoSearchModel({q: 'test'});
-      search.on('change', function(result) {
-        console.log(result);
-      });
-      search.fetch();
+      this.current = 'index';
+      this.options = {};
     },
 
     settings: function() {
-      console.log('videro');
+      this.current = 'settings';
+      this.options = {};
     },
 
     channel: function(channelId, videoId) {
-
+      this.current = 'channel';
+      this.options = {
+        channelId: channelId,
+        videoId: videoId
+      };
     },
     search: function(query, page) {
-
+      this.current = 'search';
+      this.options = {
+        query: query,
+        page: page
+      };
     },
     users: function(userId) {
-
+      this.current = 'user';
+      this.options = {
+        userId: userId
+      };
     }
   });
   return DesktopRouter;
